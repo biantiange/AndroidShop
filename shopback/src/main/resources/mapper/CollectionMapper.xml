@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wishes.market.mapper.CollectionMapper">
+    <resultMap id="BaseResultMap" type="com.wishes.market.model.Collection">
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="commodity_id" jdbcType="INTEGER" property="commodityId"/>
+        <result column="delete_flag" jdbcType="INTEGER" property="deleteFlag"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        user_id
+        , `commodity_id`, delete_flag
+    </sql>
+
+    <!--新增收藏-->
+    <insert id="insert" parameterType="com.wishes.market.model.Collection">
+        replace
+        into collection (user_id, `commodity_id`, delete_flag)
+        values (
+        #{userId,jdbcType=INTEGER},
+        #{commodityId,jdbcType=INTEGER},
+        #{deleteFlag,jdbcType=INTEGER}
+        )
+    </insert>
+
+    <!--删除收藏（修改 deleteFlag = 1）-->
+    <update id="deleteByPrimaryKey" parameterType="INTEGER">
+        update collection
+        set delete_flag = 1
+        where user_id = #{userId,jdbcType=INTEGER}
+          and commodity_id = #{commodityId,jdbcType=INTEGER}
+    </update>
+
+    <!--根据商品ID查询点收藏-->
+    <select id="queryCollectionByCommodityId" parameterType="INTEGER" resultType="INTEGER">
+        select count(1)
+        from collection
+        where user_id = #{userId,jdbcType=INTEGER}
+          and commodity_id = #{commodityId,jdbcType=INTEGER}
+          and delete_flag = 0
+    </select>
+
+</mapper>

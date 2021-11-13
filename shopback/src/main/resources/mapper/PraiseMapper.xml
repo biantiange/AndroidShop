@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wishes.market.mapper.PraiseMapper">
+    <resultMap id="BaseResultMap" type="com.wishes.market.model.Praise">
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="post_id" jdbcType="INTEGER" property="postId"/>
+        <result column="delete_flag" jdbcType="INTEGER" property="deleteFlag"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        user_id
+        , `post_id`, delete_flag
+    </sql>
+
+    <!--新增点赞-->
+    <insert id="insert" parameterType="com.wishes.market.model.Praise">
+        replace
+        into praise (user_id, `post_id`, delete_flag)
+        values (
+        #{userId,jdbcType=INTEGER},
+        #{postId,jdbcType=INTEGER},
+        #{deleteFlag,jdbcType=INTEGER}
+        )
+    </insert>
+
+    <!--删除点赞（修改 deleteFlag = 1）-->
+    <update id="deleteByPrimaryKey" parameterType="long">
+        update praise
+        set delete_flag = 1
+        where user_id = #{userId,jdbcType=INTEGER}
+          and post_id = #{postId,jdbcType=INTEGER}
+    </update>
+
+    <!--根据帖子ID查询点赞数-->
+    <select id="queryPraiseCount" parameterType="Long" resultType="INTEGER">
+        select count(*)
+        from praise
+        where post_id = #{postId,jdbcType=INTEGER}
+          and delete_flag = 0
+    </select>
+    <!--根据帖子集合和用户ID 查询点赞post-->
+    <select id="getPraisesByPostIdList" resultType="Long">
+        select
+        post_id
+        from praise
+        where delete_flag = '0'
+        and user_id = #{userId,jdbcType=INTEGER}
+        and post_id in
+        <foreach collection="postIdList" item="postId" open="(" close=")" separator=",">
+            #{postId}
+        </foreach>
+    </select>
+
+</mapper>

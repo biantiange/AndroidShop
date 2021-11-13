@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wishes.market.mapper.PostMapper">
+    <resultMap id="BaseResultMap" type="com.wishes.market.model.Post">
+        <id column="post_id" jdbcType="INTEGER" property="postId"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="img_one" jdbcType="VARCHAR" property="imgOne"/>
+        <result column="img_two" jdbcType="VARCHAR" property="imgTwo"/>
+        <result column="img_three" jdbcType="VARCHAR" property="imgThree"/>
+        <result column="create_time" jdbcType="VARCHAR" property="createTime"/>
+        <result column="delete_flag" jdbcType="INTEGER" property="deleteFlag"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        post_id
+        , `user_id`, img_one, `img_two`, img_three,content, create_time, delete_flag
+    </sql>
+
+    <!--新增帖子-->
+    <insert id="insert" parameterType="com.wishes.market.model.Post">
+        <selectKey keyProperty="postId" resultType="long">
+            select LAST_INSERT_ID()
+        </selectKey>
+        insert into post (post_id, `user_id`, img_one, `img_two`, img_three,content, create_time, delete_flag)
+        values (#{postId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{imgOne,jdbcType=VARCHAR},
+        #{imgTwo,jdbcType=VARCHAR},#{imgThree,jdbcType=VARCHAR},#{content,jdbcType=VARCHAR},
+        #{createTime,jdbcType=VARCHAR}, #{deleteFlag,jdbcType=INTEGER})
+    </insert>
+
+    <!--删除帖子（修改 deleteFlag = 1）-->
+    <update id="deleteByPrimaryKey" parameterType="long">
+        update post
+        set delete_flag = 1
+        where post_id = #{postId,jdbcType=INTEGER}
+    </update>
+
+    <!--查询帖子-->
+    <select id="queryPosts" parameterType="Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from post
+        where delete_flag = 0
+    </select>
+
+    <!--查询所有帖子-->
+    <select id="queryPostsBack" resultMap="BaseResultMap">
+        <!--        select-->
+        <!--        <include refid="Base_Column_List"/>-->
+        <!--        from post-->
+        <!--        where delete_flag = 0-->
+        <!--        LIMIT #{start},#{offset}-->
+
+        SELECT
+        post.post_id,
+        post.user_id,
+        post.img_one,
+        post.img_two,
+        post.img_three,
+        post.content,
+        post.create_time,
+        post.delete_flag,
+        t_sys_user.uname,
+        t_sys_user.is_deleted
+        FROM
+        post post
+        LEFT JOIN t_sys_user t_sys_user ON post.user_id = t_sys_user.id
+        WHERE t_sys_user.is_deleted = 'N' and post.delete_flag = 0
+        LIMIT #{start},#{offset}
+    </select>
+
+    <select id="countPost" resultType="java.lang.Long">
+        select count(*)
+        from post
+        where delete_flag = 0
+    </select>
+
+    <select id="countPostByUserId" resultType="java.lang.Long">
+        select count(*)
+        from post
+        where delete_flag = 0
+          and user_id = #{userId,jdbcType=INTEGER}
+    </select>
+
+</mapper>

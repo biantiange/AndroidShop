@@ -1,0 +1,948 @@
+{
+	"info": {
+		"_postman_id": "f6965bfb-1769-4212-9470-ada1c5793636",
+		"name": "shop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "分页获取商品",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:58080/business/queryPageBack?page=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"business",
+						"queryPageBack"
+					],
+					"query": [
+						{
+							"key": "commodityType",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "query",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取商品分类",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/business/queryCommodityTypes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"business",
+						"queryCommodityTypes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除商品",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/business/deleteFromCommodity?cId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"business",
+						"deleteFromCommodity"
+					],
+					"query": [
+						{
+							"key": "cId",
+							"value": "2"
+						},
+						{
+							"key": "updateUser",
+							"value": "123",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "编辑商品",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/console/editCommodity?id=76&commodityName=test&commodityType=1&is_deleted=N",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"console",
+						"editCommodity"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "76"
+						},
+						{
+							"key": "commodityName",
+							"value": "test"
+						},
+						{
+							"key": "commodityType",
+							"value": "1"
+						},
+						{
+							"key": "is_deleted",
+							"value": "N"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取所有已购订单",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/business/queryBoughtListBack?page=1&limit=90",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"business",
+						"queryBoughtListBack"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "uId",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "90"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除订单",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/business/deleteFromBought?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"business",
+						"deleteFromBought"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取所有用户信息",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/control/getUserInfos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"control",
+						"getUserInfos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除用户",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/control/deleteUserInfo?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"control",
+						"deleteUserInfo"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "编辑用户信息",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/control/editUser?id=1&account=111111&uname=admin1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"control",
+						"editUser"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						},
+						{
+							"key": "account",
+							"value": "111111"
+						},
+						{
+							"key": "password",
+							"value": "bbe7133717d98bf46de71c3996ad2741",
+							"disabled": true
+						},
+						{
+							"key": "uname",
+							"value": "admin1"
+						},
+						{
+							"key": "createTime",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取所有用户的购物车信息",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/business/queryCartListBack?limit=90&page=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"business",
+						"queryCartListBack"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "90"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取所有用户的商品评论信息",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/control/searchCommentBack?limit=2&page=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"control",
+						"searchCommentBack"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				},
+				"description": "分页查询商品评论"
+			},
+			"response": []
+		},
+		{
+			"name": "根据帖子ID查询点赞数",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/post/queryPraiseCount?postId=100000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"post",
+						"queryPraiseCount"
+					],
+					"query": [
+						{
+							"key": "postId",
+							"value": "100000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除点赞根据userId 和 postId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/post/deletePraise?userId=100002&postId=100000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"post",
+						"deletePraise"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "100002"
+						},
+						{
+							"key": "postId",
+							"value": "100000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除帖子-根据帖子ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/post/deletePost?postId=100000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"post",
+						"deletePost"
+					],
+					"query": [
+						{
+							"key": "postId",
+							"value": "100000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加帖子",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/post/addPost?userId=100002&postId=100004&content=susususu&createTime=2021-10-24 18:09:00&deleteFlag=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"post",
+						"addPost"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "100002"
+						},
+						{
+							"key": "postId",
+							"value": "100004"
+						},
+						{
+							"key": "content",
+							"value": "susususu"
+						},
+						{
+							"key": "createTime",
+							"value": "2021-10-24 18:09:00"
+						},
+						{
+							"key": "deleteFlag",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "点赞",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/post/addPraise?userId=100002&postId=100004",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"post",
+						"addPraise"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "100002"
+						},
+						{
+							"key": "postId",
+							"value": "100004"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "分页查询帖子，并返回是否点赞",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/post/getPosts?limit=5&page=1&userId=2&yesMine=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"post",
+						"getPosts"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "userId",
+							"value": "2"
+						},
+						{
+							"key": "yesMine",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加评论",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/control/addComment?userId=1&postId=10031&content=qweqweq&createTime=2021-10-27 11:40:00 &deleteFlag=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"control",
+						"addComment"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						},
+						{
+							"key": "postId",
+							"value": "10031"
+						},
+						{
+							"key": "content",
+							"value": "qweqweq"
+						},
+						{
+							"key": "createTime",
+							"value": "2021-10-27 11:40:00 "
+						},
+						{
+							"key": "deleteFlag",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除评论",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/control/deleteComment?commentId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"control",
+						"deleteComment"
+					],
+					"query": [
+						{
+							"key": "commentId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据 commodityId 修改 商品规格",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "commodityId",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "detail",
+							"value": "memory{\"6G\",\"8G\",\"12G\",\"16G\"}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:58080/business/updateByCommodityId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"business",
+						"updateByCommodityId"
+					],
+					"query": [
+						{
+							"key": "commodityId",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "detail",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加商品规格",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "commodityId",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "detail",
+							"value": "memory{\"6G\",\"8G\",\"12G\"}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:58080/business/addSpecs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"business",
+						"addSpecs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据 commodityId 查询 Specs（商品规格）",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/business/findSpecsByCommodityId?commodityId=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"business",
+						"findSpecsByCommodityId"
+					],
+					"query": [
+						{
+							"key": "commodityId",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询销量前五的 商品类型",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/business/findTopFiveForType",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"business",
+						"findTopFiveForType"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "收藏",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:58080/business/insertCollection?userId=2&commodityId=7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"business",
+						"insertCollection"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "2"
+						},
+						{
+							"key": "commodityId",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "取消收藏",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/business/deleteCollection?userId=2&commodityId=7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"business",
+						"deleteCollection"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "2"
+						},
+						{
+							"key": "commodityId",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询是否收藏过该商品",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/business/queryCollectionByCommodityId?userId=2&commodityId=7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"business",
+						"queryCollectionByCommodityId"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "2"
+						},
+						{
+							"key": "commodityId",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加订单商品规格",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "specsId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "detail",
+							"value": "123123",
+							"type": "text"
+						},
+						{
+							"key": "cartId",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:58080/business/addSCartSpecs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"business",
+						"addSCartSpecs"
+					],
+					"query": [
+						{
+							"key": "specsId",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "detail",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改订单商品规格",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/business/updateByCartId?cartId=2&detail=77777",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"business",
+						"updateByCartId"
+					],
+					"query": [
+						{
+							"key": "cartId",
+							"value": "2"
+						},
+						{
+							"key": "detail",
+							"value": "77777"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据cartId 查询订单商品规格 ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58080/business/findCartSpecsByCartId?cartId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58080",
+					"path": [
+						"business",
+						"findCartSpecsByCartId"
+					],
+					"query": [
+						{
+							"key": "cartId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
