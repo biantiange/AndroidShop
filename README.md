@@ -1,6 +1,6 @@
 # AndroidShop
 # 项目说明
-![](https://img.shields.io/badge/Api-23--26-green.svg)
+![](https://img.shields.io/badge/Api-23--31-green.svg)
 ![](https://img.shields.io/badge/License-Apache%202.0-orange.svg)
 
 > 基于 https://github.com/a1098832322/MarketAndroidApp 开发，添加后台管理系统，未完善。添加安卓端社区功能，添加安卓端商城所需的很多细节，项目将继续持续完善。
