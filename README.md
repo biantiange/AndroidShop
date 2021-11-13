@@ -1,0 +1,2 @@
+# AndroidShop
+for Idea
