@@ -40,8 +40,12 @@
 
 
 ## 开发/编译/调试
-1、确保开发环境没有问题  jdk mysql Android sdk 后端基于springboot swagger mybatis
-2、拉取仓库代码 
-3、建数据库，执行sql 
-4、使用maven编译shopback
-5、使用Android studio导入shop项目
+> * 1、确保开发环境没有问题  jdk mysql Android sdk 后端基于springboot swagger mybatis
+> * 2、拉取仓库代码 
+> * 3、建数据库，执行sql 
+> * 4、使用maven编译shopback
+> * 5、使用Android studio导入shop项目
+
+## 问题咨询
+> * 部分代码参考自网络，如有问题请联系: 941131649@qq.com
+> * 项目相关问题请提交issues，项目人员会跟进项目状态
