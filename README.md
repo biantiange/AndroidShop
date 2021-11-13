@@ -47,5 +47,8 @@
 > * 5、使用Android studio导入shop项目
 
 ## 问题咨询
-> * 部分代码参考自网络，如有问题请联系: fish: 941131649@qq.com abbr: 1343354008@qq.com tiange: 1329139497@qq.com
+> * 部分代码参考自网络，如有问题请联系: 
+> * fish: 941131649@qq.com 
+> * abbr: 1343354008@qq.com 
+> * tiange: 1329139497@qq.com
 > * 项目相关问题请提交issues，项目人员会跟进项目状态
