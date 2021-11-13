@@ -45,6 +45,7 @@
 > * 3、建数据库，执行sql 
 > * 4、使用maven编译shopback
 > * 5、使用Android studio导入shop项目
+> * 6、部分接口在postman接口文件 shopback/shop.postman_collection.json
 
 ## 问题咨询
 > * 部分代码参考自网络，如有问题请联系: 
